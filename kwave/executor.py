@@ -43,7 +43,6 @@ class Executor:
 
     def run_simulation(self, input_filename: str, output_filename: str, options: str):
         env_variables = {
-            'LD_LIBRARY_PATH': '',
             'OMP_PLACES': 'cores',
             'OMP_PROC_BIND': 'SPREAD',
         }
