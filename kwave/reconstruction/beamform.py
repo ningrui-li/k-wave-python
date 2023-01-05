@@ -114,16 +114,7 @@ def beamform(channel_data: ChannelData):
     envelope_beamformed_data = np.absolute(beamformed_data)
     compressed_beamformed_data = 20 * np.log10(envelope_beamformed_data / np.amax(envelope_beamformed_data) + 1e-12)
 
-    plt.figure
-    x_dis = 1e3 * wave_origin_x
-    z_dis = 1e3 * z
-    plt.imshow(compressed_beamformed_data, vmin=-60, vmax=0, cmap='Greys_r',
-               extent=[min(x_dis), max(x_dis), max(z_dis), min(z_dis)])
-    plt.xlabel('x[mm]', fontsize=12)
-    plt.ylabel('z[mm]', fontsize=12)
-    plt.title(channel_data.description)
-    plt.colorbar()
-    plt.show()
+    return compressed_beamformed_data
 
 
 def focus(kgrid, input_signal, source_mask, focus_position, sound_speed):
